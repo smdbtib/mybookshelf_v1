@@ -1,1 +1,23 @@
-<p>classes works!</p>
+<table mat-table [dataSource]="genderBooks" class="mat-elevation-z8">
+
+  <!-- Id Gender -->
+  <ng-container matColumnDef="_idGender">
+    <th mat-header-cell *matHeaderCellDef>Código CDD</th>
+    <td mat-cell *matCellDef="let gender"> {{gender._idGender}} </td>
+  </ng-container>
+
+  <!-- Name Gender -->
+  <ng-container matColumnDef="nameGender">
+    <th mat-header-cell *matHeaderCellDef> Name Gender </th>
+    <td mat-cell *matCellDef="let gender"> {{gender.nameGender}} </td>
+  </ng-container>
+
+  <!-- Decimal Gender -->
+  <ng-container matColumnDef="decimalGender">
+    <th mat-header-cell *matHeaderCellDef> Dacinal Factor </th>
+    <td mat-cell *matCellDef="let gender"> {{gender.decimalGender}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnView"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnView;"></tr>
+</table>
