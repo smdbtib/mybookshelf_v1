@@ -1,0 +1,12 @@
+[
+  {"_idGender": "0", "nameGender": "Generalities", "decimalGender": "00", "booksGender": 50},
+  {"_idGender": "1", "nameGender": "Philosophy and Psychology", "decimalGender": "00", "booksGender": 12},
+  {"_idGender": "2", "nameGender": "Religion", "decimalGender": "00", "booksGender": 14},
+  {"_idGender": "3", "nameGender": "Social Sciences", "decimalGender": "00", "booksGender": 45},
+  {"_idGender": "4", "nameGender": "Languages", "decimalGender": "00", "booksGender": 32},
+  {"_idGender": "5", "nameGender": "Ciências Naturais e Matimática", "decimalGender": "00", "booksGender": 87},
+  {"_idGender": "6", "nameGender": "Technology and Applied Sciences", "decimalGender": "00", "booksGender": 52},
+  {"_idGender": "7", "nameGender": "Arts", "decimalGender": "00", "booksGender": 32},
+  {"_idGender": "8", "nameGender": "Literature and Rhetoric", "decimalGender": "00", "booksGender": 57},
+  {"_idGender": "9", "nameGender": "Geography History and Biography", "decimalGender": "00", "booksGender": 14}
+]
