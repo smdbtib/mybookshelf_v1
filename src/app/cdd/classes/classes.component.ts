@@ -1,5 +1,7 @@
+import { GetGenderService } from './../service/get-gender.service';
 import { Component, OnInit } from '@angular/core';
 import { Genders } from '../modelos/genders';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-classes',
@@ -8,11 +10,13 @@ import { Genders } from '../modelos/genders';
 })
 export class ClassesComponent implements OnInit {
 
-  genderBooks: Genders[] = [];
+  genderBooks: Observable <Genders[]>;
 
   columnView = ['_idGender', 'nameGender', 'decimalGender'];
 
-  constructor() { }
+  constructor(private genderService: GetGenderService) {
+    this.genderBooks = genderService.listGender();
+   }
 
   ngOnInit(): void {
   }
