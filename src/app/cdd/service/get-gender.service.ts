@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { delay } from 'rxjs';
 import { Genders } from '../modelos/genders';
 
 @Injectable({
@@ -14,6 +15,9 @@ export class GetGenderService {
   constructor(private clienteDados: HttpClient) { }
 
   listGender(){
-    return this.clienteDados.get<Genders[]>(this.urlAPI);
+    return this.clienteDados.get<Genders[]>(this.urlAPI)
+    .pipe(
+      delay(3000)
+    )
   }
 }
