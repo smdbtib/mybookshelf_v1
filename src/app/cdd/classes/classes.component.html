@@ -1,5 +1,5 @@
 <mat-card>
-  <div>
+  <div *ngIf="genderBooks$ | async as books; else loading">
     <!-- Toolbar Card -->
     <mat-toolbar color="accent">
       <button
@@ -27,11 +27,17 @@
       </button>
     </mat-toolbar>
     <!-- Table Category -->
-    <table mat-table [dataSource]="genderBooks" class="mat-elevation-z8">
-      <!-- Id Gender -->
+    <table mat-table [dataSource]="books" class="mat-elevation-z8">
+      <!-- Icon Gender -->
       <ng-container matColumnDef="_idGender">
-        <th mat-header-cell *matHeaderCellDef>Código CDD</th>
-        <td mat-cell *matCellDef="let gender">{{ gender._idGender }}</td>
+        <th mat-header-cell *matHeaderCellDef>Icons CDD</th>
+        <td mat-cell *matCellDef="let gender">
+          <div class="example-button-container">
+            <button class="iconCdd" mat-fab color="accent" aria-label="">
+              <mat-icon>{{ gender._idGender | pipes }}</mat-icon>
+            </button>
+          </div>
+        </td>
       </ng-container>
       <!-- Name Gender -->
       <ng-container matColumnDef="nameGender">
@@ -40,7 +46,7 @@
       </ng-container>
       <!-- Decimal Gender -->
       <ng-container matColumnDef="decimalGender">
-        <th mat-header-cell *matHeaderCellDef>Dacinal Factor</th>
+        <th mat-header-cell *matHeaderCellDef>Decimal Factor</th>
         <td mat-cell *matCellDef="let gender">{{ gender.decimalGender }}</td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="columnView"></tr>
@@ -48,12 +54,12 @@
     </table>
   </div>
   <!-- Spinner -->
-  <ng-template #loading> <!-- BUSCAR INFORMAÇÕES SOBRE A TAG NG -->
+  <ng-template #loading>
+    <!-- BUSCAR INFORMAÇÕES SOBRE A TAG NG -->
     <div class="loading-spinner">
-      <mat-spinner ></mat-spinner>
+      <mat-spinner></mat-spinner>
     </div>
   </ng-template>
 
   <!-- <mat-progress-spinner></mat-progress-spinner> -->
 </mat-card>
-s
