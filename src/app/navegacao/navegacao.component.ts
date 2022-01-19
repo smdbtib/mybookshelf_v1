@@ -15,7 +15,7 @@ export class NavegacaoComponent {
 
   //ITENS DO MENU PRINCIPAL
   titleNav = 'BookShelf';
-  user = { userName: 'Samuel Dias', icon: 'remember_me' };
+  /*user = { userName: 'Samuel Dias', icon: 'remember_me' }; */
   //ITENS BARRA SUPERIOR
   titleBar = '[Your personal virtual BookShelf]';
   //ITENS DE ICONS E IMAGENS DE NAVEGAÇÃO
