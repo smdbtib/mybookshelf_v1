@@ -1,0 +1,7 @@
+[
+  { "linkMenu": "/cdd", "labelMenu": "Class Dewey", "able": true },
+  { "linkMenu": "/feed", "labelMenu": "Feed News", "able": true },
+  { "linkMenu": "/user", "labelMenu": "User page", "able": false },
+  { "linkMenu": "/club", "labelMenu": "Book Club", "able": false },
+  { "linkMenu": "/shelf", "labelMenu": "Private Shelf", "able": false }
+]

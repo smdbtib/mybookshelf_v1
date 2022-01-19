@@ -12,11 +12,13 @@ import { GetGenderService } from './../service/get-gender.service';
   styleUrls: ['./classes.component.scss'],
 })
 export class ClassesComponent implements OnInit {
+  //DECLARANDO O OBSERVABLE
   genderBooks$: Observable<Genders[]>;
 
   columnView = ['_idGender', 'nameGender', 'decimalGender'];
 
   constructor(
+    //INJETANDO O SERVIÇO PARA O CONSTRUTOR
     private genderService: GetGenderService,
     public dialog: MatDialog
   ) {

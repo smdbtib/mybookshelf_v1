@@ -8,7 +8,7 @@
     <!-- ICON E USUÁRIO NO MENU -->
     <p><mat-icon aria-label="Usuário">{{user.icon}}</mat-icon> {{user.userName}}</p>
     <!-- LISTA DE ROTAS SENDO CRIADAS VIA NGFOR -->
-    <mat-nav-list *ngFor="let itemMenu of itensMenu" >
+    <mat-nav-list *ngFor="let itemMenu of itensMenu$ | async; index as i" > <!--  PIPE (ASYNC) para transformar em vetor -->
       <a mat-list-item *ngIf="itemMenu.able === true"[href]="itemMenu.linkMenu">{{itemMenu.labelMenu}}</a>
     </mat-nav-list>
   </mat-sidenav>
