@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bookshelf-24847": {
+      "hosting": {
+        "mybookshelf_v1": [
+          "bookshelf-24847"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bookshelf-24847"
+  }
+}

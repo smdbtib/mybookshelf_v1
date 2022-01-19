@@ -6,7 +6,7 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>{{titleNav}}</mat-toolbar>
     <!-- ICON E USUÁRIO NO MENU -->
-    <p><mat-icon aria-label="Usuário">{{user.icon}}</mat-icon> {{user.userName}}</p>
+
     <!-- LISTA DE ROTAS SENDO CRIADAS VIA NGFOR -->
     <mat-nav-list *ngFor="let itemMenu of itensMenu$ | async; index as i" > <!--  PIPE (ASYNC) para transformar em vetor -->
       <a mat-list-item *ngIf="itemMenu.able === true"[href]="itemMenu.linkMenu">{{itemMenu.labelMenu}}</a>
@@ -24,7 +24,11 @@
       </button>
       <!-- IMAGEM DO ICON NO MENU -->
       <img mat-card-sm-image [width]="wIcon" [height]="lIcon" [src]="iconGeneral" >
-      <span>{{titleBar}}</span>
+      <button mat-raised-button color="primary">
+        <mat-icon class="mat-18">login</mat-icon>
+        LOG IN
+       </button>
+
     </mat-toolbar>
     <!-- TRAZENDO TABELA DO CDD -->
     <router-outlet></router-outlet>
