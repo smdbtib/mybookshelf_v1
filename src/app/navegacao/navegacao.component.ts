@@ -1,9 +1,12 @@
-import { MenuNavegadorService } from './../servicosInterface/menu-navegador.service';
-import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable, of } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
+
 import { MenuNavegador } from '../modelsInterface/menuNavegador';
+import { AppLoginComponent } from './../app-login/app-login.component';
+import { MenuNavegadorService } from './../servicosInterface/menu-navegador.service';
 
 @Component({
   selector: 'app-navegacao',
@@ -35,12 +38,17 @@ export class NavegacaoComponent {
   constructor(
     private menuService: MenuNavegadorService,
     //INJETANDO SERVIÇO NO CONSTRUTOR
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    public telaLogin: MatDialog,
   ) {
     this.itensMenu$ = menuService.listMenu().pipe(
       catchError((error) => {
         return of([]);
       })
     );
+  }
+
+  openDialogLogin(errorMsg: string) {
+    this.telaLogin.open(AppLoginComponent, { data: errorMsg });
   }
 }

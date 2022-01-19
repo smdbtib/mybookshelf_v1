@@ -3,7 +3,7 @@
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title></mat-card-title>
+      <mat-card-title>{{contentMsg}}</mat-card-title>
       <mat-card-subtitle>[Enter your virtual bookshelf]</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="../../assets/img/4.png" alt="Banner login" />
@@ -11,9 +11,12 @@
       <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
         <mat-form-field>
           <input matInput placeholder="Email" />
+          <mat-error *ngIf="email?.errors?.['required']">Field cannot be empty</mat-error>
+          <mat-error *ngIf="email?.errors?.['email']">The email format is not valid</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Password" type="password" />
+          <mat-error *ngIf="password?.errors?.['required']">Field cannot be empty</mat-error>
         </mat-form-field>
         <button mat-raised-button color="accent" type="submit">Log in</button>
         <button mat-button mat-dialog-close>Close</button>

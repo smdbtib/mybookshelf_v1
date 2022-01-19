@@ -24,8 +24,8 @@
       </button>
       <!-- IMAGEM DO ICON NO MENU -->
       <img mat-card-sm-image [width]="wIcon" [height]="lIcon" [src]="iconGeneral" >
-      <button mat-raised-button color="primary">
-        <mat-icon class="mat-18">login</mat-icon>
+      <button mat-raised-button color="primary" (click)="openDialogLogin('Login screen')">
+        <mat-icon class="mat-18" color="primary">login</mat-icon>
         LOG IN
        </button>
 
