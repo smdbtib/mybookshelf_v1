@@ -1,0 +1,21 @@
+<form [formGroup]="registerForm" (ngSubmit)="sendRegister()">
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email"/>
+    <mat-error *ngIf="email?.errors?.['required']"
+      >Field cannot be empty</mat-error
+    >
+    <mat-error *ngIf="email?.errors?.['email']"
+      >The email format is not valid</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Password" formControlName="password" type="password" />
+    <mat-error *ngIf="password?.errors?.['required']"
+      >Field cannot be empty</mat-error
+    >
+  </mat-form-field>
+  <mat-card-footer class="mat-card-footer">
+    <button mat-raised-button color="accent" type="submit">Log in</button>
+    <button mat-raised-button color="primary" >Close</button>
+  </mat-card-footer>
+</form>

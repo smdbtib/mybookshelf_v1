@@ -24,11 +24,18 @@
       </button>
       <!-- IMAGEM DO ICON NO MENU -->
       <img mat-card-sm-image [width]="wIcon" [height]="lIcon" [src]="iconGeneral" >
-      <button mat-raised-button color="primary" (click)="openDialogLogin('Login screen')">
-        <mat-icon class="mat-18" color="primary">login</mat-icon>
-        LOG IN
-       </button>
-
+      <ng-container *ngIf="user$ | async as user; else btLogin">
+        <button mat-raised-button color="primary" (click)="logoutUser()">
+          <mat-icon class="mat-18">logout</mat-icon>
+          LOGOUT
+         </button>
+      </ng-container>
+      <ng-template #btLogin>
+        <button mat-raised-button color="primary" (click)="openDialogLogin('Login screen')">
+          <mat-icon class="mat-18">login</mat-icon>
+          LOG IN
+         </button>
+      </ng-template>
     </mat-toolbar>
     <!-- TRAZENDO TABELA DO CDD -->
     <router-outlet></router-outlet>
