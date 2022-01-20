@@ -28,6 +28,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { HotToastModule } from '@ngneat/hot-toast';
+import { AppRegisterComponent } from './app-register/app-register.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NavegacaoComponent,
     FeedComponent,
     AppLoginComponent,
+    AppRegisterComponent,
 
   ],
   imports: [
@@ -60,7 +63,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    HotToastModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { authState } from 'rxfire/auth';
 import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthFirebaseService {
-                          // (Auth) módulo de interface do fire/auth feita pelo comando do ng add @angular/fire
+
+  // Atribuindo o status da authentication do user
+  userLogged$ = authState(this.userFb);
+
+  // (Auth) módulo de interface do fire/auth feita pelo comando do ng add @angular/fire
   constructor( private userFb: Auth,
   ) { }
 
@@ -15,7 +20,7 @@ export class AuthFirebaseService {
   userLogin(userMail:string, userPassword: string){
     return from(signInWithEmailAndPassword(this.userFb, userMail, userPassword));
   }
-  logout(){
+  logoutUser(){
     return from(this.userFb.signOut());
   }
 
