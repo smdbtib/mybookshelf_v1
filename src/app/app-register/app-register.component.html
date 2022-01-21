@@ -1,21 +1,56 @@
-<form [formGroup]="registerForm" (ngSubmit)="sendRegister()">
-  <mat-form-field>
-    <input matInput placeholder="Email" formControlName="email"/>
-    <mat-error *ngIf="email?.errors?.['required']"
-      >Field cannot be empty</mat-error
-    >
-    <mat-error *ngIf="email?.errors?.['email']"
-      >The email format is not valid</mat-error
-    >
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Password" formControlName="password" type="password" />
-    <mat-error *ngIf="password?.errors?.['required']"
-      >Field cannot be empty</mat-error
-    >
-  </mat-form-field>
-  <mat-card-footer class="mat-card-footer">
-    <button mat-raised-button color="accent" type="submit">Log in</button>
-    <button mat-raised-button color="primary" >Close</button>
-  </mat-card-footer>
-</form>
+<mat-grid-list cols="1" [rowHeight]="'100px'" [gutterSize]="'1px'">
+  <mat-grid-tile [colspan]="1" [rowspan]="1">Register BookShelf</mat-grid-tile>
+  <!-- FORM REGISTER -->
+  <mat-card>
+    <img mat-card-image src="../../assets/img/cover2.png" alt="Register">
+    <form [formGroup]="registerForm" (ngSubmit)="sendRegister()">
+      <!-- Name -->
+      <mat-form-field>
+        <input matInput placeholder="Enter your name" formControlName="name" />
+        <mat-error *ngIf="name?.errors?.['required']"
+          >Enter your name.
+        </mat-error>
+      </mat-form-field>
+      <!-- Email -->
+      <mat-form-field>
+        <input matInput placeholder="Email Login" formControlName="email" />
+        <mat-error *ngIf="email?.errors?.['required']"
+          >Enter your email</mat-error
+        >
+        <mat-error *ngIf="email?.errors?.['email']"
+          >Invalid email format</mat-error
+        >
+      </mat-form-field>
+      <!-- Password -->
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Enter your password"
+          formControlName="password"
+          type="password"
+        />
+        <mat-error *ngIf="password?.errors?.['required']">Password</mat-error>
+      </mat-form-field>
+      <!-- Confirm password -->
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Confirme your password"
+          formControlName="confirmPassword"
+          type="password"
+        />
+        <mat-error *ngIf="password?.errors?.['required']"
+          >Confirm password.</mat-error
+        >
+        <mat-error *ngIf="registerForm.errors?.['passwordConfirmed']"
+          >Confirm password.</mat-error
+        >
+      </mat-form-field>
+      <!-- Buttons -->
+      <mat-card-footer>
+        <button mat-button color="accent" type="submit">Register</button>
+        <button mat-button color="primary">Close</button>
+      </mat-card-footer>
+    </form>
+  </mat-card>
+</mat-grid-list>

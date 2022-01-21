@@ -19,7 +19,7 @@ export class NavegacaoComponent {
   //DECLARANDO OBSERVABLE com status do user logged
   user$ = this.authFirebaseService.userLogged$;
   //ITENS DO MENU PRINCIPAL
-  titleNav = 'BookShelf';
+  logoMenu = '../../assets/img/logoBS4.png';
   /*user = { userName: 'Samuel Dias', icon: 'remember_me' }; */
   //ITENS BARRA SUPERIOR
   titleBar = '[Your personal virtual BookShelf]';
